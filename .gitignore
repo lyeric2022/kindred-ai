@@ -24,6 +24,7 @@
 !README.md
 !package.json
 !package-lock.json
+!bash.sh
 
 # Ignore specific files in the allowed directories
 src/**/*.log
