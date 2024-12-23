@@ -4,6 +4,7 @@
 # Allow specific directories
 !src/
 !backend/
+!svelte-app/
 
 # Allow specific file types in the allowed directories
 !src/**/*.svelte
@@ -12,6 +13,11 @@
 !src/**/*.js
 !src/**/*.json
 !backend/**/*.py
+!svelte-app/src/**/*.svelte
+!svelte-app/src/**/*.css
+!svelte-app/src/**/*.html
+!svelte-app/src/**/*.js
+!svelte-app/src/**/*.json
 
 # Allow specific files
 !.gitignore
@@ -22,8 +28,8 @@
 # Ignore specific files in the allowed directories
 src/**/*.log
 backend/**/*.log
-src/**/*.tmp
-backend/**/*.tmp
+svelte-app/src/**/*.log
+svelte-app/src/**/*.tmp
 
 # Ignore node_modules and other common directories
 node_modules/
