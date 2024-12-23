@@ -2,7 +2,7 @@
 *
 
 # Allow specific directories
-!svelte/
+!svelte-app/
 !backend/
 
 # Allow specific file types in the allowed directories
@@ -12,6 +12,7 @@
 !*.html
 !*.js
 !*.json
+!*.txt
 
 # Allow specific files
 !.gitignore
