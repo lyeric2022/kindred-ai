@@ -26,6 +26,9 @@
 !package-lock.json
 !bash.sh
 
+# Allow specific files in the public directory
+!svelte-app/public/index.html
+
 # Ignore specific files in the allowed directories
 src/**/*.log
 backend/**/*.log

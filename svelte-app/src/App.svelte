@@ -7,6 +7,8 @@
     let isRecording = false;
     let isProcessing = false;
     let errorMessage = '';
+    let question = '';
+    let answer = '';
 
     async function startRecording() {
         try {
@@ -51,6 +53,24 @@
             }
         };
     }
+
+    async function askQuestion() {
+        try {
+            const response = await fetch('http://127.0.0.1:8000/ask', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ question })
+            });
+
+            const result = await response.json();
+            answer = result.answer;
+            errorMessage = '';
+        } catch (error) {
+            errorMessage = 'Error during question processing: ' + error.message;
+        }
+    }
 </script>
 
 <h1>Record Audio and Transcribe</h1>
@@ -67,4 +87,14 @@
 
 {#if transcription}
     <p class="transcription">{transcription}</p>
+{/if}
+
+<h1>Ask a Question</h1>
+<form on:submit|preventDefault={askQuestion}>
+    <input type="text" bind:value={question} placeholder="Type your question here" required>
+    <button type="submit">Ask</button>
+</form>
+
+{#if answer}
+    <p class="answer">{answer}</p>
 {/if}

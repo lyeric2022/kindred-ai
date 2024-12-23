@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# filepath: /mnt/c/Users/Eric Ly/Repos/fam-legacy/bash.sh
+# Enable debugging and print all commands that are executed
+set -x
 
 # Exit immediately if a command exits with a non-zero status
 set -e
@@ -28,6 +29,4 @@ pip install fastapi uvicorn python-multipart
 pip install git+https://github.com/openai/whisper
 pip install sentence-transformers
 pip install pinecone-client
-
-# Run the FastAPI application
-uvicorn app:app --reload
+pip install python-dotenv
