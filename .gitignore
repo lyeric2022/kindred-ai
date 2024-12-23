@@ -2,7 +2,7 @@
 *
 
 # Allow specific directories
-!src/
+!svelte/
 !backend/
 
 # Allow specific file types in the allowed directories
@@ -18,9 +18,9 @@
 !README.md
 
 # Ignore specific files in the allowed directories
-src/*.log
+svelte-app/*.log
 backend/*.log
-src/*.tmp
+svelte-app/*.tmp
 backend/*.tmp
 
 # Ignore node_modules and other common directories
