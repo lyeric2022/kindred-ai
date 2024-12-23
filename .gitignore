@@ -1,0 +1,30 @@
+# Ignore everything
+*
+
+# Allow specific directories
+!src/
+!backend/
+
+# Allow specific file types in the allowed directories
+!*.py
+!*.svelte
+!*.css
+!*.html
+!*.js
+!*.json
+
+# Allow specific files
+!.gitignore
+!README.md
+
+# Ignore specific files in the allowed directories
+src/*.log
+backend/*.log
+src/*.tmp
+backend/*.tmp
+
+# Ignore node_modules and other common directories
+node_modules/
+dist/
+build/
+.env
