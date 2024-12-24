@@ -32,42 +32,90 @@ button {
 
 button:hover {
     background-color: #357ab8;
-    transform: translateY(-2px);
 }
 
-button:disabled {
-    cursor: not-allowed;
-    opacity: 0.6;
-    background-color: #ccc;
-}
-
-form {
-    margin-top: 20px;
-}
-
-input[type="text"] {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.story-container, .question-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     width: 80%;
-    max-width: 400px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 80%;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    flex: 1;
+    min-width: 300px;
+    max-width: 80%;
+}
+
+.story-input, .story-record, .question-input, .question-record {
+    flex: 1;
+    margin: 10px 30px 10px 10px;
+}
+
+.story-input textarea, .question-input textarea, textarea {
+    width: 100%;
+    height: 100px;
     margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.story-record, .question-record {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .error {
     color: red;
+}
+
+.transcription, .answer {
+    font-style: italic;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 80%;
+}
+
+.recording-indicator {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    animation: blink 1s infinite;
     margin-top: 10px;
 }
 
-.transcription {
-    margin-top: 20px;
-    font-size: 18px;
-    white-space: pre-wrap;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    width: 90%;
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
 }
