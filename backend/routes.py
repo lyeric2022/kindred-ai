@@ -1,20 +1,15 @@
-from fastapi import APIRouter, File, UploadFile
-from fastapi.responses import JSONResponse, FileResponse
-from models import QuestionRequest
-from services import transcribe_audio, ask_question
+from fastapi import APIRouter, File, UploadFile, Request
+from fastapi.responses import JSONResponse
+from services import handle_transcription, handle_question
 
 router = APIRouter()
 
 @router.post("/transcribe")
-async def transcribe(file: UploadFile = File(...)):
-    transcription = await transcribe_audio(file)
+async def transcribe(file: UploadFile = File(None), request: Request = None):
+    transcription = await handle_transcription(file, request)
     return JSONResponse({"transcription": transcription})
 
 @router.post("/ask")
-def ask_question_route(payload: QuestionRequest):
-    answer = ask_question(payload.question)
-    return {"answer": answer}
-
-@router.get("/")
-async def main():
-    return FileResponse("../svelte-app/public/index.html")
+async def ask_question_route(file: UploadFile = File(None), request: Request = None):
+    answer = await handle_question(file, request)
+    return JSONResponse({"answer": answer})
