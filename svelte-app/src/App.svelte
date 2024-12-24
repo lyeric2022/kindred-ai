@@ -73,7 +73,7 @@
     }
 </script>
 
-<h1>Record Audio and Transcribe</h1>
+<h1>Record Your Stories</h1>
 <button on:click={startRecording} disabled={isRecording || isProcessing}>Record</button>
 <button on:click={stopRecording} disabled={!isRecording}>Stop</button>
 
