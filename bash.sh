@@ -17,7 +17,7 @@ python3 -m venv venv
 # Activate the virtual environment
 source venv/bin/activate
 
-# Verify that the virtual environment is activated
+# Verify that the virtual environment is activated 
 which python
 which pip
 
@@ -30,3 +30,5 @@ pip install git+https://github.com/openai/whisper
 pip install sentence-transformers
 pip install pinecone-client
 pip install python-dotenv
+pip install cerebras_cloud_sdk
+
