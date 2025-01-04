@@ -14,7 +14,7 @@ def load_cerebras_model(api_key, model_name="llama3.1-8b"):
 def generate_answer_cerebras(client, model_name, question, relevant_texts):
     logger.info("Generating answer for question: %s", question)
     context_block = "\n".join(relevant_texts)
-    prompt = f"Context:\n{context_block}\n\nQuestion: {question}\nAnswer:"
+    prompt = f"Context:\n{context_block}\n\nQuestion: {question}\nAnswer as if you were the person:"
     logger.info("Generated prompt: %s", prompt)
     
     chat_completion = client.chat.completions.create(
