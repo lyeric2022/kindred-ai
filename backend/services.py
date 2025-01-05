@@ -53,7 +53,7 @@ async def ask_question(question):
     # Retrieve relevant chunks from Pinecone
     relevant_chunks = get_relevant_chunks(question, top_k=3)
 
-    # Load the Cerebras model pipeline (you can load this once globally if you prefer)
+    # Load the Cerebras model pipeline
     api_key = os.getenv("CEREBRAS_API_KEY")
     client, model_name = load_cerebras_model(api_key)
 
