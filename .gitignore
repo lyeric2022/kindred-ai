@@ -13,6 +13,17 @@
 !src/**/*.js
 !src/**/*.json
 !backend/**/*.py
+
+!backend/tts/
+!backend/tts/f5_tts/
+!backend/tts/f5_tts/infer/
+!backend/tts/f5_tts/infer/examples/
+!backend/tts/f5_tts/infer/examples/vocab.txt
+
+!backend/tts/f5_tts/model/
+!backend/tts/f5_tts/model/backbones/
+
+
 !svelte-app/src/**/*.svelte
 !svelte-app/src/**/*.css
 !svelte-app/src/**/*.html
