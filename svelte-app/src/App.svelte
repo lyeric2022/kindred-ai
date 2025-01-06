@@ -1,4 +1,5 @@
 <script>
+    import { onMount } from "svelte";
     import "./App.css";
 
     let mediaRecorder;
@@ -11,6 +12,7 @@
     let answer = "";
     let storyText = "";
     let questionText = "";
+    let audioFile = null;
 
     async function startRecording() {
         try {
@@ -116,6 +118,40 @@
             isProcessing = false;
         }
     }
+
+    async function uploadAudio() {
+        if (!audioFile) {
+            errorMessage = "Please select an audio file to upload.";
+            return;
+        }
+
+        isProcessing = true;
+        try {
+            const formData = new FormData();
+            formData.append("file", audioFile);
+
+            const response = await fetch("http://127.0.0.1:8000/tts/upload", {
+                method: "POST",
+                body: formData,
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                errorMessage = "";
+                console.log("Upload successful:", result);
+            } else {
+                errorMessage = "Error during audio upload: " + result.detail;
+            }
+        } catch (error) {
+            errorMessage = "Error during audio upload: " + error.message;
+        } finally {
+            isProcessing = false;
+        }
+    }
+
+    function handleFileChange(event) {
+        audioFile = event.target.files[0];
+    }
 </script>
 
 <h1>Record Your Stories</h1>
@@ -133,6 +169,11 @@
             {#if isRecording}
                 <div class="recording-indicator"></div>
             {/if}
+        </div>
+        <div class="audio-upload">
+            <h2>Upload Your Voice Audio</h2>
+            <input type="file" accept="audio/*" on:change={handleFileChange} />
+            <button on:click={uploadAudio} disabled={isProcessing}>Upload</button>
         </div>
     </div>
 </div>
