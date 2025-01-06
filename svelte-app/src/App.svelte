@@ -149,6 +149,37 @@
         }
     }
 
+    async function synthesizeAnswer() {
+        if (!answer) {
+            errorMessage = "No answer to synthesize.";
+            return;
+        }
+
+        isProcessing = true;
+        try {
+            const response = await fetch("http://127.0.0.1:8000/tts/synthesize", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ gen_text: answer }),
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                const audio = new Audio(result.audio_file);
+                audio.play();
+                errorMessage = "";
+            } else {
+                errorMessage = "Error during TTS synthesis: " + result.detail;
+            }
+        } catch (error) {
+            errorMessage = "Error during TTS synthesis: " + error.message;
+        } finally {
+            isProcessing = false;
+        }
+    }
+
     function handleFileChange(event) {
         audioFile = event.target.files[0];
     }
@@ -206,9 +237,14 @@
                 <div class="recording-indicator"></div>
             {/if}
         </div>
+        <div class="audio-upload">
+            <h2>Upload Your Voice Audio</h2>
+            <input type="file" accept="audio/*" on:change={handleFileChange} />
+            <button on:click={uploadAudio} disabled={isProcessing}>Upload</button>
+        </div>
+        {#if answer}
+            <p class="answer">{answer}</p>
+            <button on:click={synthesizeAnswer} disabled={isProcessing}>Synthesize Answer</button>
+        {/if}
     </div>
 </div>
-
-{#if answer}
-    <p class="answer">{answer}</p>
-{/if}
