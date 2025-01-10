@@ -14,21 +14,26 @@
 !src/**/*.json
 !backend/**/*.py
 
+# Allow specific backend directories and files
 !backend/tts/
 !backend/tts/f5_tts/
 !backend/tts/f5_tts/infer/
 !backend/tts/f5_tts/infer/examples/
 !backend/tts/f5_tts/infer/examples/vocab.txt
-
 !backend/tts/f5_tts/model/
 !backend/tts/f5_tts/model/backbones/
 
-
+# Allow specific svelte-app directories and files
 !svelte-app/src/**/*.svelte
+!svelte-app/src/components/**/*.svelte
 !svelte-app/src/**/*.css
 !svelte-app/src/**/*.html
 !svelte-app/src/**/*.js
 !svelte-app/src/**/*.json
+!svelte-app/public/index.html
+
+# Ensure the components directory is not ignored
+!svelte-app/src/components/
 
 # Allow specific files
 !.gitignore
@@ -37,9 +42,6 @@
 !package-lock.json
 !bash.sh
 !requirements.txt
-
-# Allow specific files in the public directory
-!svelte-app/public/index.html
 
 # Ignore specific files in the allowed directories
 src/**/*.log
@@ -52,3 +54,7 @@ node_modules/
 dist/
 build/
 .env
+
+# Additional ignores
+/public/build/
+.DS_Store
