@@ -32,7 +32,6 @@ Kindred AI is a personalized family legacy chatbot that empowers grandparents to
 - Pinecone account for ingestion and RAG
 - Cerebras access for inferencing
 - Ideally a decent device with CUDA
-- 
 
 ### Steps
 1. **Clone the Repository**
@@ -40,7 +39,16 @@ Kindred AI is a personalized family legacy chatbot that empowers grandparents to
    git clone https://github.com/lyeric2022/kindred-ai.git
    cd kindred-ai
 
-2. **Installation**
+2. Initialize Environmental Variables
+    ```bash
+    # Create .env file to store environmental variables
+    touch .env
+
+    # Insert API keys    
+    CEREBRAS_API_KEY = ""
+    PINECONE_API_KEY = ""
+
+3. **Installation**
    ```bash
     # Or run this instead: 
     source bash.sh
@@ -56,15 +64,6 @@ Kindred AI is a personalized family legacy chatbot that empowers grandparents to
 
     # Download packages
     pip install -r requirements.txt
-
-3. Initialize Environmental Variables
-    ```bash
-    # Create .env file to store environmental variables
-    touch .env
-
-    # Insert API keys    
-    CEREBRAS_API_KEY = ""
-    PINECONE_API_KEY = ""
 
 4. Navigate to the svelte-app directory
    ```bash
