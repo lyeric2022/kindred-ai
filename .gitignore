@@ -5,6 +5,7 @@
 !src/
 !backend/
 !svelte-app/
+!svelte-app/public/
 
 # Allow specific file types in the allowed directories
 !src/**/*.svelte
@@ -30,7 +31,6 @@
 !svelte-app/src/**/*.html
 !svelte-app/src/**/*.js
 !svelte-app/src/**/*.json
-!svelte-app/public/index.html
 
 # Ensure the components directory is not ignored
 !svelte-app/src/components/
@@ -42,6 +42,9 @@
 !package-lock.json
 !bash.sh
 !requirements.txt
+
+# Ensure the logo.png file is not ignored
+!svelte-app/public/logo.png
 
 # Ignore specific files in the allowed directories
 src/**/*.log

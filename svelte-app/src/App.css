@@ -130,3 +130,60 @@ textarea:focus {
         max-width: 100%;
     }
 }
+
+/* Navbar Styles */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4a90e2;
+    padding: 15px 20px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+    color: #ffcc00;
+    transform: scale(1.1);
+}
+
+nav a.active {
+    text-decoration: underline;
+    color: #ffcc00;
+}
+
+/* Add padding to body content to avoid overlap */
+body {
+    padding-top: 70px; /* Matches navbar height */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    nav a {
+        margin: 5px 0;
+    }
+}
+
+/* Logo */
+.logo {
+    width: 300px; /* Adjust the width to make it 2x smaller */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 20px auto; /* Center the image */
+}
