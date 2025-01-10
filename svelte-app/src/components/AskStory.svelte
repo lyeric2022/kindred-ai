@@ -7,6 +7,7 @@
     let audioChunks = [];
     let mediaRecorder;
     let audioFile = null;
+    let audioSrc = "";
 
     async function startRecording() {
         try {
@@ -96,12 +97,12 @@
                 },
             );
 
-            const result = await response.json();
             if (response.ok) {
-                const audio = new Audio(result.audio_file);
-                audio.play();
+                const blob = await response.blob();
+                audioSrc = URL.createObjectURL(blob);
                 errorMessage = "";
             } else {
+                const result = await response.json();
                 errorMessage = "Error during TTS synthesis: " + result.detail;
             }
         } catch (error) {
@@ -147,6 +148,15 @@
         </div>
         {#if answer}
             <p class="answer">{answer}</p>
+        {/if}
+        {#if audioSrc}
+            <audio controls>
+                <source src={audioSrc} type="audio/mpeg" />
+                Your browser does not support the audio element.
+            </audio>
+        {/if}
+        {#if errorMessage}
+            <p class="error">{errorMessage}</p>
         {/if}
     </div>
 </div>
