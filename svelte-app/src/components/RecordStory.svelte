@@ -109,7 +109,7 @@
     }
   </script>
   
-  <h1>Record Your Stories</h1>
+  <h1>Record Stories</h1>
   <div class="card-container">
     <div class="card">
       <div class="story-input">

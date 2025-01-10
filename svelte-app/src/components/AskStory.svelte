@@ -113,7 +113,7 @@
     }
 </script>
 
-<h1>Ask a Question</h1>
+<h1>Ask Questions</h1>
 <div class="card-container">
     <div class="card">
         <div class="question-input">

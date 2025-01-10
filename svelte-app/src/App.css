@@ -1,7 +1,7 @@
 /* Global Styles */
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #f4f4f9;
+    font-family: 'Noto Sans JP', sans-serif;
+    background: linear-gradient(to bottom, #e6f2ff, #e9cfff);
     color: #333;
     margin: 0;
     padding: 0;
@@ -11,17 +11,19 @@ body {
     align-items: center;
     min-height: 100vh;
     text-align: center;
+    padding-top: 70px; /* Matches navbar height */
 }
 
 h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
-    color: #4a90e2;
+    color: #333;
 }
 
 /* Button Styles */
 button {
     margin: 10px;
+    margin-top: 10px;
     padding: 12px 24px;
     font-size: 16px;
     cursor: pointer;
@@ -151,38 +153,26 @@ nav a {
     margin: 0 15px;
     font-weight: bold;
     transition: color 0.3s ease, transform 0.2s ease;
+    margin-right: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
 }
 
 nav a:hover {
     color: #ffcc00;
     transform: scale(1.1);
+    background-color: #555;
 }
 
 nav a.active {
     text-decoration: underline;
     color: #ffcc00;
-}
-
-/* Add padding to body content to avoid overlap */
-body {
-    padding-top: 70px; /* Matches navbar height */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    nav a {
-        margin: 5px 0;
-    }
+    background-color: #007BFF;
 }
 
 /* Logo */
 .logo {
-    width: 300px; /* Adjust the width to make it 2x smaller */
+    width: 300px; /* Adjusted the width */
     height: auto; /* Maintain aspect ratio */
     display: block;
     margin: 20px auto; /* Center the image */
