@@ -1,0 +1,25 @@
+fastapi
+uvicorn
+python-multipart
+git+https://github.com/openai/whisper
+sentence-transformers
+pinecone-client
+python-dotenv
+cerebras_cloud_sdk
+
+# tts
+soundfile
+pydub
+cached_path
+matplotlib
+torchaudio
+vocos
+torchdiffeq
+librosa
+x_transformers
+jieba
+pypinyin
+wandb
+accelerate
+ema_pytorch
+datasets
