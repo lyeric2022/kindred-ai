@@ -1,7 +1,8 @@
 import os
 import logging
 from fastapi import APIRouter, HTTPException, File, UploadFile, Request
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
+
 from services import handle_transcription, handle_question, upload_audio, synthesize_audio
 from pydantic import BaseModel
 
@@ -64,9 +65,10 @@ async def tts_synthesize(request: SynthesisRequest):
     result = synthesize_audio(request.gen_text, request.ref_text, request.ref_audio_path)
     logger.debug(f"Synthesis result: {result}")
     
-    if not result.get("audio_file"):
-        logger.error("Synthesis failed: 'audio_file' missing in result.")
+    audio_file_path = result.get("audio_file")
+    if not audio_file_path or not os.path.exists(audio_file_path):
+        logger.error("Synthesis failed: 'audio_file' missing or not found.")
         raise HTTPException(status_code=500, detail="Synthesis failed")
     
-    logger.debug("Returning successful JSON response.")
-    return JSONResponse(result)
+    logger.debug(f"Returning audio file: {audio_file_path}")
+    return FileResponse(audio_file_path, media_type="audio/mpeg", filename="output.mp3")
