@@ -36,6 +36,7 @@
 !package.json
 !package-lock.json
 !bash.sh
+!requirements.txt
 
 # Allow specific files in the public directory
 !svelte-app/public/index.html

@@ -25,10 +25,4 @@ which pip
 pip install --upgrade setuptools wheel
 
 # Install required packages
-pip install fastapi uvicorn python-multipart
-pip install git+https://github.com/openai/whisper
-pip install sentence-transformers
-pip install pinecone-client
-pip install python-dotenv
-pip install cerebras_cloud_sdk
-
+pip install -r requirements.txt
