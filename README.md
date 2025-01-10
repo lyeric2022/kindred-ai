@@ -31,7 +31,7 @@ Kindred AI is a personalized family legacy chatbot that empowers grandparents to
 - Node.js
 - Pinecone account for ingestion and RAG
 - Cerebras access for inferencing
-- Ideally a decent device with CUDA
+- CUDA (might still work with CPU only)
 
 ### Steps
 1. **Clone the Repository**
