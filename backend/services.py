@@ -52,7 +52,7 @@ async def handle_question(file, request):
         with open(file_location, "wb") as f:
             f.write(await file.read())
 
-        question = whisper_model.transcribe(file_location)['question']
+        question = whisper_model.transcribe(file_location)
     else:
         data = await request.json()
         question = data["question"]
